@@ -1,0 +1,143 @@
+//video luz clarita moral cardozo https://youtu.be/mjYg9SdnUjU
+// video guida maltilda https://youtu.be/MCVWIT9mUPs?si=_p0DpmgCy39BwgzI
+let portada;
+let imagenes = [];
+let numero = [
+  "1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpeg","9.jpeg","10.jpg",
+  "11.jpg","12.jpg","13.jpeg","14.jpeg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpeg","20.jpg",
+];
+let estado = 0; // Estado inicial
+let miFuente;
+let tiempoEstado = 0; // guarda cuando entramos al estado
+let duracionEstado = 5000; // 5000 ms = 5 segundos por estado
+let sonido;
+let musicaActiva = false;
+let numeroAnimacion =[
+  "1.png","2.png","3.png", "4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png","12.png","13.png","14.png","15.png","16.png",
+  "17.png","18.png","19.png","20.png","21.png","22.png"
+  ];
+let rym = [];  //declaro mi arreglo sin tamano
+
+let marcaEnElTiempo = 0;
+let contadorIndiceImg = 0;
+
+// Opcional: textos para cada estado (puede quedar vacío si no hay)
+let textos = [];
+textos[1]= "Rick descubre que la Federación Galáctica ha creado un arma definitiva: un portal rojo que no solo abre dimensiones, sino que borra realidades completas. Si la activan, podrían eliminar la Tierra de la existencia.";
+textos[2]= "Rick: —“¡Morty, si esa cosa arranca, chau universo! Tenemos que infiltrarnos, destruirla y salir vivos";
+textos[3]= "Rick: —“¡Morty, si esa cosa arranca, chau universo! Tenemos que infiltrarnos, destruirla y salir vivos";
+textos[4]= "Morty traga saliva. La misión comienza.";
+textos[7] = "A1 Caos generado por la alarma, infiltraccion desastrosa.";
+textos[8] = "A2 Morty heroe individual, engaño exitoso: Morty es tan convincente que lo llevan directo ante el comandante alienigena.";
+textos[9] = "FINAL CAOTICO : El caos abre portales inestables por todo el universo. Salvan la tierra, pero dejan grietas interdimensionales que nadie sabe como cerrar."; // final A1
+textos[11] = "B1 Caos generado por accion detructiva, de drones masivos.";
+textos[12] = "FINAL BUENO: Rick lo libre justo a tiempo y destruyen el portal. Jessica ve la noticia y Morty queda como heore intergalactico";// final A2
+textos[13] = "FINAL JUEGO:La infiltracion en la base de la federacion se sale de control. Rick esta rodeado y los portales no funcionan correctamente. Morty, sin mas opciones toma un arma alienigena caida en el juego\nAhora es tu turno de ayudar a morty a enfertarse con el enemigo .";//final B2
+textos[14] = "FINAL CAOTICO: Los drones destruyen todo, incluido el portal rojo, pero con daños colaterales masivos. La federacion queda diezmada, el universo lleno de cicatrices."; //final B1
+textos[16] = "C1 Eliminan las copias pero causa una realidad fragmentada, multiples Summers/Jerrys";
+textos[17] = "C2 Mortu lidera clones, victoria epica coordinada.";
+textos[18] = "FINAL BUENO: Los mortys unidos derrotan a la federacion.El rick original queda sorprendido al ver a morty liderando clones de si mismo. Morty liderando clones de si mismo. Morty general de los Mortys salva el universo.";
+textos[19] = "FINAL TRAGICO: Rick elimina las copias, pero la realidad queda dañada. Al volver a casa hay multiples summers y jerrys coexistiendo.El universo se salva, pero queda roto.";//final C1
+textos[20] = "Alumna: Moral Cardozo Luz Clarita y Guida Matilda \n Los creadores de Rick y Morty son Justin Roiland y Dan Harmon. Esta serie de animación para adultos se estrenó en 2013 en Adult Swim y Cartoon Network. " ; // texto para créditos
+
+function preload() {
+  portada = loadImage("assets/portada.jpeg");
+  for (let i = 0; i < numero.length; i++) {
+    imagenes[i] = loadImage("assets/" + numero[i]);
+  } 
+  
+  for (let i = 0; i < numeroAnimacion.length; i++) {
+    rym[i] = loadImage("assets/animacion/" + numeroAnimacion[i]);
+  } 
+  
+ sonido = loadSound("assets/RickandMortyThemeSong.mp3");
+ miFuente = loadFont("assets/Jersey15-Regular.ttf"); 
+}
+
+function setup() {
+  createCanvas(640, 480);
+  frameRate(60);
+  textFont(miFuente);
+   
+}
+
+function draw() {
+  background(255);
+  
+   // Avanzar automáticamente de estado 1 a 4 usando millis()
+  if (estado >= 1 && estado <= 4) {
+    if (tiempoEstado === 0) tiempoEstado = millis();{
+    }// guardar inicio
+  if (millis() - tiempoEstado > duracionEstado) {
+      estado++;
+      tiempoEstado = millis(); // reinicia el contador para el siguiente estado
+  }
+ 
+} else {
+    tiempoEstado = 0; // resetea si estamos fuera del rango 1-4
+  }
+  if (estado === 0) {
+    mostrarPortada();
+  } else if (estado >= 1 && estado <= 4) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+  } else if (estado === 5) {
+    mostrarPregunta();
+  } else if (estado === 6) {
+    mostrarDecision2A();
+  } else if (estado === 7) {
+    mostrarImagenConTexto(estado - 1, textos[estado]); 
+    botonesFinales( 9 ); 
+  } else if (estado === 8) {
+    mostrarImagenConTexto(estado - 1, textos[estado]); 
+    botonesFinales( 12 );
+  } else if (estado === 9) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonExtraInicio();
+  } else if (estado === 10) {
+    mostrarDecision2B();
+  } else if (estado === 11) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonesFinales( 14 );
+  } else if (estado === 12) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonExtraInicio();
+  } else if (estado === 13) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonExtraInicio();
+  } else if (estado === 14) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonExtraInicio();
+  } else if (estado === 15) {
+    mostrarDecision2C();
+  } else if (estado === 16 ) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonesFinales( 19 );
+  } else if (estado === 17) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);  
+    botonesFinales( 18 );
+  }else if (estado === 18) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonExtraInicio();
+  } else if (estado === 19) {
+    mostrarImagenConTexto(estado - 1, textos[estado]);
+    botonExtraInicio();
+  } else if (estado === numero.length) {
+    mostrarImagenConTexto(numero.length - 1, textos[numero.length]);
+     botonExtraInicio();
+  } else if (estado === numero.length + 1) {
+    mostrarImagenConTexto(numero.length - 1, textos[20]);
+    botonExtraInicio();
+   
+   if ( (millis() - marcaEnElTiempo) > 300 ) {  
+    //
+    marcaEnElTiempo = millis();
+   
+    contadorIndiceImg++;
+    if ( contadorIndiceImg == rym.length ) {  //similar a usar % modulo
+      contadorIndiceImg =  (contadorIndiceImg + 1) % rym.length;
+    }
+  }
+ image(rym[contadorIndiceImg], width/2-50, height - 270, 120, 120);
+ 
+ }
+}
