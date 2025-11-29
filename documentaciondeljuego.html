@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proceso de produccion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg barra">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="imagenes/portada.png" class="logo1"></a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="Rick y morty.html">
+              <h5>Tematica</h5>
+            </a></li>
+          <li class="nav-item"><a class="nav-link" href="Integrantes.html">
+              <h5>Integrantes</h5>
+            </a></li>
+          <li class="nav-item"><a class="nav-link" href="documentaciondeljuego.html">
+              <h5>Proceso de produccion</h5>
+            </a></li>
+          <li class="nav-item"><a class="nav-link" href="aventura.html">
+              <h5>Como se ve nuestra aventura</h5>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="contenedor">
+
+    <div class="col-12 bg-light mt-4 p-4 rounded">
+      <center>
+        <h3>¿Como empezamos a desarrollar nuestra idea?</h3>
+      </center>
+
+      <div class="card mb-3">
+        <img src="imagenes/figma1.png" class="card-img-top" alt="plan de ideas">
+        <div class="card-body">
+          <h3 class="card-title">Primeras ideas</h3>
+          <p class="card-text">Primero empezamos ordenando nuestras imagenes de que caminos que te llevaria la aventura
+            por cada eleccion que hagas, viendo como se verian si seguian nuestra idea de la historia por cada camino
+            que teniamos en mente, cada estrella de color lo marcamos como un camino distinto que podia elegir el
+            jugador y como se iba a ir viendo sus decisiones. </p>
+          <p class="card-text"><small class="text-body-secondary"></small></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <img src="imagenes/figma2.png" class="card-img-top" alt="esquema de finales">
+      <div class="card-body">
+        <h3 class="card-title">Como fuimos planteando la historia</h3>
+        <p class="card-text">Queriamos darle varias opciones de finales al jugador, planteamos que por cada un final
+          puedan salirte dos opciones distintas para no repetir, entonces tenes 3 finales el caotico, el tragico y el
+          bueno de cada uno de esos dependiendo de la opcion que eligas vas formando tu final. </p>
+        <p class="card-text"><small class="text-body-secondary"></small></p>
+      </div>
+    </div>
+
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="imagenes/Codigo1.png" class="d-block w-100" alt="pantalla de creditos">
+        </div>
+        <div class="carousel-item">
+          <img src="imagenes/codigo2.png" class="d-block w-100" alt="codigo de tiempo">
+        </div>
+        <div class="carousel-item">
+          <img src="imagenes/codigo3.png" class="d-block w-100" alt="codigo de efecto">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title">Algunas cosas del codigo</h3>
+        <p class="card-text">Por ejemplos que fuimos viendo en clase decidimos sumarle en la parte de la patalla de
+          creditos al codigo un efecto de animacion haciendo como que rick y morty salian de un agujero verde del
+          espacio, en el codigo se puede ver que utilizamos un for para la animacion de imagenes y tambien milis para el
+          efecto de tiempo de cada imagenes ya que en el efecto parecen pocas imagenes, pero son 23 imagenes la que
+          causan ese efecto de movimiento. </p>
+        <p class="card-text"><small class="text-body-secondary"></small></p>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <br>
+      <h3>
+        <center>Como planteamos nuestros juegos</center>
+      </h3><br>
+      <img src="imagenes/juego1.png" class="card-img-top" alt="pantalla de juego">
+      <div class="card-body">
+        <h3 class="card-title">Efecto visual</h3>
+        <p class="card-text">En nuestro juego para darle efecto a los juegos de estilo mario bros y de combate pensamos
+          en un estilo de juego que el juegador parezca que se va moviendo todo el tiempo,aunque hay veces que se mueve
+          el fondo mas que el jugador y darle el suspenso de que tenga un combate al final del recorrido con los
+          enemigos</p>
+      </div>
+    </div>
+
+    </div>
+  </main>
+
+  <footer class="footer2">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h5>Proyecto</h5>
+          <p>Rick and Morty Game</p>
+        </div>
+        <div class="col-sm">
+          <h5>Integrantes</h5>
+          <p>Luz y Matilda</p>
+        </div>
+        <div class="col-sm">
+          <h5>Contacto</h5>
+          <p>info@multimedial.com</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+</html>

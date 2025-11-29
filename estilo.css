@@ -1,0 +1,74 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Playfair Display", serif;
+  color: #000;
+  background-image: url("imagenes/fondo1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.contenedor {
+  width: 800px;
+  max-width: 95%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.barra {
+  background-color: #5EA529;
+}
+
+.barra .nav-link {
+  color: white;
+  margin: 0 30px;
+}
+
+.barra .nav-link.active {
+  color: white;
+}
+
+.barra .navbar-brand {
+  color: white;
+}
+
+.logo1 {
+  width: 200px;
+  height: auto;
+}
+
+.carrusel1 {
+  width: 90%;
+  margin: 40px auto;
+}
+
+.card-color {
+  background-color: #FFE100;
+  color: azul;
+  border: 3px solid #FFE100;
+}
+
+.footer2 {
+  background-color: #5EA529;
+  color: #fff;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.footer2 h5 {
+  margin-bottom: 2px;
+  color: #FFEC5C;
+  font-size: 15px;
+}
+
+.footer2 p {
+  font-size: 14px;
+  margin: 0;
+}
